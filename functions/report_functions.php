@@ -234,3 +234,4 @@ function getRecentRatings($limit = 5)
         return [];
     }
 }
+
