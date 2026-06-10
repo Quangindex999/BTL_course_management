@@ -35,89 +35,8 @@ $categories = getCategories();
     <title>Quản lý Khóa học - Admin</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background: #f3f4f6;
-        }
-
-        .sidebar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 100vh;
-            width: 260px;
-            background: linear-gradient(135deg, #1d5c7a 0%, #168f70 100%);
-            color: white;
-            padding: 2rem 0;
-            z-index: 1000;
-            overflow-y: auto;
-        }
-
-        .sidebar-brand {
-            padding: 0 1.5rem;
-            margin-bottom: 2rem;
-            font-size: 1.5rem;
-            font-weight: 800;
-        }
-
-        .sidebar-menu {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .sidebar-menu li {
-            margin-bottom: 0.25rem;
-        }
-
-        .sidebar-menu a {
-            display: flex;
-            align-items: center;
-            padding: 0.875rem 1.5rem;
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            transition: all 0.3s;
-            font-weight: 500;
-        }
-
-        .sidebar-menu a:hover,
-        .sidebar-menu a.active {
-            background: rgba(255, 255, 255, 0.15);
-            color: white;
-            border-left: 4px solid white;
-        }
-
-        .sidebar-menu i {
-            width: 24px;
-            margin-right: 0.75rem;
-        }
-
-        .main-content {
-            margin-left: 260px;
-            padding: 2rem;
-        }
-
-        .card {
-            border: none;
-            border-radius: 15px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-        }
-
-        .course-thumbnail {
-            width: 80px;
-            height: 80px;
-            object-fit: cover;
-            border-radius: 10px;
-        }
-
-        .btn-action {
-            padding: 0.25rem 0.75rem;
-            font-size: 0.875rem;
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/admin.css">
 </head>
 
 <body>
@@ -146,123 +65,90 @@ $categories = getCategories();
         <div id="top-alert-spacer" style="height: 56px;"></div>
     <?php endif; ?>
     <!-- Sidebar -->
-    <div class="sidebar">
-        <div class="sidebar-brand">
-            <i class="fas fa-graduation-cap me-2"></i>EduLearn Admin
-        </div>
-        <ul class="sidebar-menu">
+    <div class="admin-sidebar">
+        <div class="admin-sidebar-brand"><i class="fas fa-graduation-cap me-2"></i>EduLearn Admin</div>
+        <ul class="admin-sidebar-menu">
             <li><a href="dashboard.php"><i class="fas fa-tachometer-alt"></i>Dashboard</a></li>
             <li><a href="manage_courses.php" class="active"><i class="fas fa-book"></i>Quản lý Khóa học</a></li>
             <li><a href="create_courses.php"><i class="fas fa-plus-circle"></i>Thêm Khóa học</a></li>
             <li><a href="manage_users.php"><i class="fas fa-users"></i>Quản lý Người dùng</a></li>
             <li><a href="create_users.php"><i class="fas fa-user-plus"></i>Thêm Người dùng</a></li>
             <li><a href="manage_enrollments.php"><i class="fas fa-file-invoice"></i>Quản lý Đăng ký</a></li>
-            <li>
-                <hr style="border-color: rgba(255,255,255,0.2); margin: 1rem 1.5rem;">
-            </li>
+            <li><hr style="border-color: rgba(255,255,255,0.2); margin: 1rem 1.5rem;"></li>
             <li><a href="../../index.php"><i class="fas fa-home"></i>Về Trang chủ</a></li>
             <li><a href="../../handle/logout_process.php"><i class="fas fa-sign-out-alt"></i>Đăng xuất</a></li>
         </ul>
     </div>
 
     <!-- Main Content -->
-    <div class="main-content">
-        <div class="d-flex flex-wrap justify-content-between align-items-center mb-4 gap-2">
-            <h2 class="mb-0"><i class="fas fa-book me-2"></i>Quản lý Khóa học</h2>
+    <div class="admin-main-content">
+        <div class="admin-top-bar d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+            <div>
+                <h2 class="mb-1 admin-section-title"><i class="fas fa-book me-2"></i>Quản lý Khóa học</h2>
+                <p class="admin-section-subtitle mb-0">Quản lý danh sách khóa học, trạng thái và thao tác nhanh</p>
+            </div>
             <div class="d-flex gap-2">
-                <a href="ratings.php" class="btn btn-outline-primary">
-                    <i class="fas fa-star me-2"></i>Xem đánh giá
-                </a>
-                <a href="create_courses.php" class="btn btn-primary">
-                    <i class="fas fa-plus me-2"></i>Thêm Khóa học Mới
-                </a>
+                <a href="ratings.php" class="btn btn-outline-primary"><i class="fas fa-star me-2"></i>Xem đánh giá</a>
+                <a href="create_courses.php" class="btn btn-primary"><i class="fas fa-plus me-2"></i>Thêm Khóa học Mới</a>
             </div>
         </div>
 
         <?php /* inline alert removed in favor of top banner */ ?>
 
-        <!-- Filters -->
-        <div class="card mb-4">
+        <div class="card admin-filter-card mb-4">
             <div class="card-body">
-                <form method="GET" class="row g-3">
+                <form method="GET" class="row g-3 align-items-end">
                     <div class="col-md-5">
+                        <label class="form-label fw-semibold">Tìm kiếm</label>
                         <input type="text" class="form-control" name="search" placeholder="Tìm kiếm khóa học..." value="<?php echo escape($search); ?>">
                     </div>
                     <div class="col-md-4">
+                        <label class="form-label fw-semibold">Danh mục</label>
                         <select class="form-select" name="category">
                             <option value="">Tất cả danh mục</option>
                             <?php foreach ($categories as $cat): ?>
-                                <option value="<?php echo $cat['category_id']; ?>" <?php echo $category == $cat['category_id'] ? 'selected' : ''; ?>>
-                                    <?php echo escape($cat['category_name']); ?>
-                                </option>
+                                <option value="<?php echo $cat['category_id']; ?>" <?php echo $category == $cat['category_id'] ? 'selected' : ''; ?>><?php echo escape($cat['category_name']); ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
                     <div class="col-md-3">
-                        <button type="submit" class="btn btn-primary w-100">
-                            <i class="fas fa-search me-2"></i>Tìm kiếm
-                        </button>
+                        <button type="submit" class="btn btn-primary w-100"><i class="fas fa-search me-2"></i>Tìm kiếm</button>
                     </div>
                 </form>
             </div>
         </div>
 
-        <!-- Courses Table -->
-        <div class="card">
+        <div class="card admin-card">
             <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-hover">
+                <div class="admin-table-wrap table-responsive">
+                    <table class="table table-hover mb-0 align-middle">
                         <thead>
                             <tr>
-                                <th>ID</th>
-                                <th>Khóa học</th>
-                                <th>Danh mục</th>
-                                <th>Giảng viên</th>
-                                <th>Giá</th>
-                                <th>Học viên</th>
-                                <th>Trạng thái</th>
-                                <th>Thao tác</th>
+                                <th>ID</th><th>Khóa học</th><th>Danh mục</th><th>Giảng viên</th><th>Giá</th><th>Học viên</th><th>Trạng thái</th><th>Thao tác</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php if (empty($courses)): ?>
-                                <tr>
-                                    <td colspan="8" class="text-center py-4">
-                                        <i class="fas fa-inbox fa-3x text-muted mb-3"></i>
-                                        <p class="text-muted">Không tìm thấy khóa học nào</p>
-                                    </td>
-                                </tr>
+                                <tr><td colspan="8" class="text-center py-5"><i class="fas fa-inbox fa-3x text-muted mb-3 d-block"></i><p class="text-muted mb-0">Không tìm thấy khóa học nào</p></td></tr>
                             <?php else: ?>
                                 <?php foreach ($courses as $course): ?>
                                     <tr>
                                         <td><?php echo $course['course_id']; ?></td>
                                         <td>
                                             <div class="d-flex align-items-center">
-                                                <img src="<?php echo getImageUrl($course['thumbnail'], 'https://via.placeholder.com/80'); ?>"
-                                                    alt="" class="course-thumbnail me-3">
-                                                <div>
-                                                    <strong><?php echo escape($course['course_name']); ?></strong><br>
-                                                    <small class="text-muted"><?php echo escape(substr($course['description'], 0, 50)); ?>...</small>
-                                                </div>
+                                                <img src="<?php echo getImageUrl($course['thumbnail'], 'https://via.placeholder.com/80'); ?>" alt="" class="admin-thumbnail me-3">
+                                                <div><strong><?php echo escape($course['course_name']); ?></strong><br><small class="text-muted"><?php echo escape(substr($course['description'], 0, 50)); ?>...</small></div>
                                             </div>
                                         </td>
                                         <td><?php echo escape($course['category_name']); ?></td>
                                         <td><?php echo escape($course['instructor_name']); ?></td>
                                         <td><strong class="text-primary"><?php echo formatCurrency($course['price']); ?></strong></td>
-                                        <td>
-                                            <span class="badge bg-info"><?php echo $course['enrolled_count']; ?></span>
-                                        </td>
+                                        <td><span class="badge bg-info"><?php echo $course['enrolled_count']; ?></span></td>
                                         <td><?php echo getStatusBadge($course['status']); ?></td>
                                         <td>
                                             <div class="btn-group btn-group-sm">
-                                                <a href="edit_courses.php?id=<?php echo $course['course_id']; ?>"
-                                                    class="btn btn-warning btn-action" title="Sửa">
-                                                    <i class="fas fa-edit"></i>
-                                                </a>
-                                                <button onclick="deleteCourse(<?php echo $course['course_id']; ?>)"
-                                                    class="btn btn-danger btn-action" title="Xóa">
-                                                    <i class="fas fa-trash"></i>
-                                                </button>
+                                                <a href="edit_courses.php?id=<?php echo $course['course_id']; ?>" class="btn btn-warning btn-action" title="Sửa"><i class="fas fa-edit"></i></a>
+                                                <button onclick="deleteCourse(<?php echo $course['course_id']; ?>)" class="btn btn-danger btn-action" title="Xóa"><i class="fas fa-trash"></i></button>
                                             </div>
                                         </td>
                                     </tr>
@@ -272,33 +158,12 @@ $categories = getCategories();
                     </table>
                 </div>
 
-                <!-- Pagination -->
                 <?php if (($pagination['total_pages'] ?? 0) > 1): ?>
                     <nav class="mt-4">
                         <ul class="pagination justify-content-center">
-                            <?php if ($pagination['has_prev']): ?>
-                                <li class="page-item">
-                                    <a class="page-link" href="?page=<?php echo $pagination['current_page'] - 1; ?>&search=<?php echo urlencode($search); ?>&category=<?php echo $category; ?>">
-                                        <i class="fas fa-chevron-left"></i>
-                                    </a>
-                                </li>
-                            <?php endif; ?>
-
-                            <?php for ($i = 1; $i <= $pagination['total_pages']; $i++): ?>
-                                <li class="page-item <?php echo $i === $pagination['current_page'] ? 'active' : ''; ?>">
-                                    <a class="page-link" href="?page=<?php echo $i; ?>&search=<?php echo urlencode($search); ?>&category=<?php echo $category; ?>">
-                                        <?php echo $i; ?>
-                                    </a>
-                                </li>
-                            <?php endfor; ?>
-
-                            <?php if ($pagination['has_next']): ?>
-                                <li class="page-item">
-                                    <a class="page-link" href="?page=<?php echo $pagination['current_page'] + 1; ?>&search=<?php echo urlencode($search); ?>&category=<?php echo $category; ?>">
-                                        <i class="fas fa-chevron-right"></i>
-                                    </a>
-                                </li>
-                            <?php endif; ?>
+                            <?php if ($pagination['has_prev']): ?><li class="page-item"><a class="page-link" href="?page=<?php echo $pagination['current_page'] - 1; ?>&search=<?php echo urlencode($search); ?>&category=<?php echo $category; ?>"><i class="fas fa-chevron-left"></i></a></li><?php endif; ?>
+                            <?php for ($i = 1; $i <= $pagination['total_pages']; $i++): ?><li class="page-item <?php echo $i === $pagination['current_page'] ? 'active' : ''; ?>"><a class="page-link" href="?page=<?php echo $i; ?>&search=<?php echo urlencode($search); ?>&category=<?php echo $category; ?>"><?php echo $i; ?></a></li><?php endfor; ?>
+                            <?php if ($pagination['has_next']): ?><li class="page-item"><a class="page-link" href="?page=<?php echo $pagination['current_page'] + 1; ?>&search=<?php echo urlencode($search); ?>&category=<?php echo $category; ?>"><i class="fas fa-chevron-right"></i></a></li><?php endif; ?>
                         </ul>
                     </nav>
                 <?php endif; ?>

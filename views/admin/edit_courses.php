@@ -32,82 +32,8 @@ $categories = getCategories();
     <title><?php echo $is_edit ? 'Sửa' : 'Thêm'; ?> Khóa học - Admin</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background: #f3f4f6;
-        }
-
-        .sidebar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 100vh;
-            width: 260px;
-            background: linear-gradient(135deg, #1d5c7a 0%, #168f70 100%);
-            color: white;
-            padding: 2rem 0;
-            z-index: 1000;
-            overflow-y: auto;
-        }
-
-        .sidebar-brand {
-            padding: 0 1.5rem;
-            margin-bottom: 2rem;
-            font-size: 1.5rem;
-            font-weight: 800;
-        }
-
-        .sidebar-menu {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .sidebar-menu a {
-            display: flex;
-            align-items: center;
-            padding: 0.875rem 1.5rem;
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-
-        .sidebar-menu a:hover,
-        .sidebar-menu a.active {
-            background: rgba(255, 255, 255, 0.15);
-            color: white;
-            border-left: 4px solid white;
-        }
-
-        .sidebar-menu i {
-            width: 24px;
-            margin-right: 0.75rem;
-        }
-
-        .main-content {
-            margin-left: 260px;
-            padding: 2rem;
-        }
-
-        .card {
-            border: none;
-            border-radius: 15px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-        }
-
-        .form-label {
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .preview-image {
-            max-width: 200px;
-            border-radius: 10px;
-            margin-top: 1rem;
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/admin.css">
 </head>
 
 <body>
