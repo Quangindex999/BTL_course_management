@@ -18,54 +18,8 @@ $ratings = getTeacherRatings($teacher_id);
     <title>Đánh giá khóa học - Giáo viên</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background: #f3f4f6;
-        }
-
-        .sidebar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 260px;
-            height: 100vh;
-            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-            color: white;
-            padding: 2rem 0;
-        }
-
-        .sidebar a {
-            color: rgba(255, 255, 255, 0.9);
-            display: block;
-            padding: 0.85rem 1.5rem;
-            text-decoration: none;
-        }
-
-        .sidebar a.active,
-        .sidebar a:hover {
-            background: rgba(255, 255, 255, 0.15);
-            color: white;
-            border-left: 4px solid white;
-        }
-
-        .main-content {
-            margin-left: 260px;
-            padding: 2rem;
-        }
-
-        .card {
-            border: none;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
-
-        .rating-badge {
-            font-weight: 700;
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/teacher.css">
 </head>
 
 <body>
